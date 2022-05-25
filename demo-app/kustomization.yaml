@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: demo
 resources:
 - 1-demo-app.yaml
+- 2-sample-rollout.yaml
