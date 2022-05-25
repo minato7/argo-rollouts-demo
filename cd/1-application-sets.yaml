@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/minato7/argo-rollouts-demo.git
       revision: HEAD
       directories:
-      - path: demo-app
+      - path: rollouts
   template:
     metadata:
       name: '{{path.basename}}'
