@@ -28,7 +28,4 @@ spec:
         - CreateNamespace=true 
         - PruneLast=true 
         - ApplyOutOfSyncOnly=true
-  #Use this option of ApplicationSet to preserve App resources upon deletion of Application from ArgoCD
-  # syncPolicy: 
-  #     preserveResourcesOnDeletion: true             
----         
+---
