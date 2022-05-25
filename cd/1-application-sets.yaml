@@ -1,0 +1,34 @@
+---      
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-app-set
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/minato7/argo-rollouts-demo.git
+      revision: HEAD
+      directories:
+      - path: demo-app
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/minato7/argo-rollouts-demo.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: true        
+        syncOptions:
+        - CreateNamespace=true 
+        - PruneLast=true 
+        - ApplyOutOfSyncOnly=true
+  #Use this option of ApplicationSet to preserve App resources upon deletion of Application from ArgoCD
+  # syncPolicy: 
+  #     preserveResourcesOnDeletion: true             
+---         
