@@ -82,7 +82,7 @@ kind: Deployment
 metadata:
   name: bluegreen-demo
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: bluegreen-demo
